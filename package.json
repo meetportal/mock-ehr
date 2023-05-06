@@ -1,0 +1,27 @@
+{
+  "name": "mock-ehr",
+  "version": "1.0.0",
+  "description": "Mock EHR used to demonstrate Portal functionality",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@solidjs/router": "^0.8.2",
+    "@tailwindcss/container-queries": "^0.1.0",
+    "date-fns": "^2.29.3",
+    "solid-icons": "^1.0.4",
+    "solid-js": "^1.7.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3",
+    "vite-plugin-solid": "^2.5.0"
+  }
+}

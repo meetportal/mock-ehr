@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: var(--sl-color-neutral-0); */
+  /* full screen */
+  width: 100vw;
+  height: 100vh;
+  /* center */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+#app {
+  @apply w-full h-full bg-gray-100;
+}
+
+img {
+  @apply pointer-events-none;
+}
+
+.bg-arrow-right {
+  clip-path: polygon(0px 0px, 0px 100%, 486px 100%, 100% 50%, 486px 0px)
+}

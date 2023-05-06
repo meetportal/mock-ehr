@@ -1,0 +1,11 @@
+.Calendar {
+  @apply w-full;
+}
+
+.CalendarHeader {
+  @apply text-white bg-[#393855] px-4 py-3 font-medium rounded-t flex items-center gap-4;
+}
+
+.CalendarLink {
+  @apply flex items-center justify-center px-3 py-2 text-xs font-medium uppercase rounded cursor-pointer select-none hover:bg-white/20;
+}
