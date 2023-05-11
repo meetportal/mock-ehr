@@ -3,9 +3,16 @@ import { For, createMemo } from 'solid-js'
 import AccountDropDown from '../../components/AccountDropDown/AccountDropDown'
 import AppBar from '../../components/AppBar/AppBar'
 import AppBarLink from '../../components/AppBarLink/AppBarLink'
+import { BiRegularChart } from 'solid-icons/bi'
+import { BsBandaid } from 'solid-icons/bs'
+import { BsCalendarCheck } from 'solid-icons/bs'
 import Container from '../../components/Container/Container'
+import { FaSolidPills } from 'solid-icons/fa'
+import { FiSearch } from 'solid-icons/fi'
+import { IoFlowerOutline } from 'solid-icons/io'
 import Male1 from '../../assets/male_1.png'
 import SearchInput from '../../components/SearchInput/SearchInput'
+import { TbHeartbeat } from 'solid-icons/tb'
 import { format } from 'date-fns'
 import { state } from '../../services/store'
 import { useParams } from '@solidjs/router'
@@ -42,14 +49,14 @@ const Chart = () => {
 
   return (
     <Container className="w-full" contentClass="w-screen !h-screen">
-      <AppBar>
+      {/* <AppBar>
         <AppBarLink label="Calendar" to="/" />
         <AppBarLink label="Patients" to="/patients" />
         <AppBarLink label="Claims" to="/claims" />
         <AppBarLink label="Financials" to="/financials" />
         <SearchInput class="ml-auto" />
         <AccountDropDown />
-      </AppBar>
+      </AppBar> */}
       <div class="flex-grow flex flex-col bg-gray-100">
         <div class="flex h-18">
           <div class="flex-shrink-0 flex items-center justify-center bg-gray-300 w-18 h-18 p-2">
@@ -72,31 +79,31 @@ const Chart = () => {
         <div class="flex-grow flex">
           <div class="flex-shrink-0 w-16 flex flex-col gap-4 items-center text-xl bg-gray-200 px-2 py-4">
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="search" />
+              <FiSearch />
               <div class="text-[8px] uppercase">find</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="flower1" />
+              <IoFlowerOutline />
               <div class="text-[8px] uppercase">Allergy</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="bandaid" />
+              <BsBandaid />
               <div class="text-[8px] uppercase">problem</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="prescription" />
+              <FaSolidPills />
               <div class="text-[8px] uppercase">meds</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="heart-pulse" />
+              <TbHeartbeat />
               <div class="text-[8px] uppercase">vitals</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="clipboard2-pulse" />
+              <BiRegularChart />
               <div class="text-[8px] uppercase">results</div>
             </button>
             <button class="flex flex-col gap-1 items-center">
-              <sl-icon name="calendar" />
+              <BsCalendarCheck />
               <div class="text-[8px] uppercase">visits</div>
             </button>
           </div>

@@ -15,14 +15,14 @@ const Main = () => {
   return (
     <div class="@container h-screen w-screen flex flex-col">
       <Container className="w-full">
-        <AppBar>
+        {/* <AppBar>
           <AppBarLink label="Calendar" to="/" />
           <AppBarLink label="Patients" to="/patients" />
           <AppBarLink label="Claims" to="/claims" />
           <AppBarLink label="Financials" to="/financials" />
           <SearchInput class="ml-auto" />
           <AccountDropDown />
-        </AppBar>
+        </AppBar> */}
         <div class="flex-grow flex h-full bg-gray-100 p-4">
           <SideNav />
           <Calendar />

@@ -5,31 +5,18 @@ import { Router, hashIntegration } from '@solidjs/router'
 import App from './App'
 import { render } from 'solid-js/web'
 
-declare module 'solid-js/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      'sl-button': any
-      'sl-card': any
-      'sl-dropdown': any
-      'sl-icon': any
-      'sl-input': any
-      'sl-menu': any
-      'sl-menu-item': any
-      'sl-divider': any
-      iframe: any
-      webview: any
-    }
-    interface Directives {
-      model: [() => any, (v: any) => any]
-    }
-  }
+const root = document.getElementById('root')
+
+if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
+  throw new Error(
+    'Root element not found. Did you forget to add it to your index.html? Or maybe the id attribute got mispelled?',
+  )
 }
 
-render(
-  () => (
+if (root) {
+  render(() => (
     <Router source={hashIntegration()}>
       <App />
     </Router>
-  ),
-  document.getElementById('root') as HTMLElement
-)
+  ), root)
+}

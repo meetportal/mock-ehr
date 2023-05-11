@@ -13,14 +13,14 @@ export default function Patient() {
 
   return (
     <Container className="w-screen h-screen">
-      <AppBar>
+      {/* <AppBar>
         <AppBarLink label="Calendar" to="/" />
         <AppBarLink label="Patients" to="/patients" />
         <AppBarLink label="Claims" to="/claims" />
         <AppBarLink label="Financials" to="/financials" />
         <SearchInput class="ml-auto" />
         <AccountDropDown />
-      </AppBar>
+      </AppBar> */}
       <div class="@container h-full flex gap-4 bg-gray-100 p-4">
         <SideNav />
         <PatientList />

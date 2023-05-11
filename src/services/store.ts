@@ -33,7 +33,7 @@ export const clearUser = () => {
 }
 
 // restore user from local storage
-const user = localStorage.getItem('ehrUser')
-if (user) {
-  setUser(JSON.parse(user))
-}
+// const user = localStorage.getItem('ehrUser')
+// if (user) {
+//   setUser(JSON.parse(user))
+// }

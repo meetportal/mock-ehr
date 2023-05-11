@@ -1,3 +1,4 @@
+import { TbHeartbeat } from 'solid-icons/tb'
 import styles from './AppBar.module.css'
 
 const AppBar = (props: any) => {
@@ -5,7 +6,7 @@ const AppBar = (props: any) => {
     <div class={styles.AppBar}>
       <div class="flex items-center gap-2 px-4">
         <div style="font-size: 18px;margin-top: 4px">
-          <sl-icon name="heart-pulse" />
+          <TbHeartbeat />
         </div>
         <span>Demo EHR</span>
       </div>
