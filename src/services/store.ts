@@ -16,7 +16,7 @@ export const [state, setState] = createStore<{
   visits: demoVisits.map((v, i) => ({ ...v, date: new Date(v.date) })),
 })
 
-export const setUser = (user: UserType) => {
+export const setUser = (user?: UserType) => {
   setState({ user })
   localStorage.setItem('ehrUser', JSON.stringify(user))
   if (window.parent) {
@@ -33,7 +33,7 @@ export const clearUser = () => {
 }
 
 // restore user from local storage
-// const user = localStorage.getItem('ehrUser')
-// if (user) {
-//   setUser(JSON.parse(user))
-// }
+const user = localStorage.getItem('ehrUser')
+if (user) {
+  setUser(JSON.parse(user))
+}

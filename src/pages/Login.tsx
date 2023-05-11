@@ -1,11 +1,14 @@
+import { clearUser, setUser } from '../services/store'
+
 import { createSignal } from 'solid-js'
-import { setUser } from '../services/store'
 import { useNavigate } from '@solidjs/router'
 
 export default function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = createSignal('')
   const [password, setPassword] = createSignal('')
+
+  clearUser()
 
   if (window.parent) {
     window.parent.postMessage({ type: 'user', data: '' }, '*')
