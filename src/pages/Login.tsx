@@ -1,7 +1,5 @@
-import './Login.css'
-
 import { createSignal } from 'solid-js'
-import { setUser } from '../../services/store'
+import { setUser } from '../services/store'
 import { useNavigate } from '@solidjs/router'
 
 export default function Login() {
@@ -31,7 +29,7 @@ export default function Login() {
             placeholder="demouser@mail.com"
             value={username()}
             class='rounded border p-2 w-full'
-            onInput={(e: { target: { value: any } }) => setUsername(e.target.value)}
+            onInput={(e: any) => setUsername(e.target.value)}
           />
           <div class='text-xs'>Password</div>
           <input
@@ -39,9 +37,9 @@ export default function Login() {
             type="password"
             value={password()}
             class='rounded border p-2 w-full'
-            onInput={(e: any) => setUsername(e.target.value)}
+            onInput={(e: any) => setPassword(e.target.value)}
           />
-          <button type="submit" class="mt-6 text-white bg-sky-600 hover:bg-sky-500 rounded py-4 font-medium">
+          <button type="submit" disabled={!username()} class="mt-6 text-white bg-sky-600 hover:bg-sky-500 rounded py-4 font-medium disabled:bg-neutral-200 disabled:text-neutral-500">
             Login
           </button>
         </form>
