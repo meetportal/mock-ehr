@@ -1,5 +1,7 @@
 import CalendarItem from '../CalendarItem/CalendarItem'
 import Container from '../Container/Container'
+import { FiChevronLeft } from 'solid-icons/fi'
+import { FiChevronRight } from 'solid-icons/fi'
 import { For } from 'solid-js'
 import { state } from '../../services/store'
 import styles from './Calendar.module.css'
@@ -23,10 +25,10 @@ const Calendar = () => {
           <button class={styles.CalendarLink}>Week</button>
           <button class={styles.CalendarLink}>Today</button>
           <button class="flex items-center justify-center">
-            <sl-icon name="chevron-left" />
+            <FiChevronLeft />
           </button>
           <button class="flex items-center justify-center">
-            <sl-icon name="chevron-right" />
+            <FiChevronRight />
           </button>
         </div>
         <div class="px-3 py-2 text-sm bg-gray-200">Samantha Jones MD</div>

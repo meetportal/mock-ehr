@@ -16,7 +16,7 @@ export const [state, setState] = createStore<{
   visits: demoVisits.map((v, i) => ({ ...v, date: new Date(v.date) })),
 })
 
-export const setUser = (user: UserType) => {
+export const setUser = (user?: UserType) => {
   setState({ user })
   localStorage.setItem('ehrUser', JSON.stringify(user))
   if (window.parent) {

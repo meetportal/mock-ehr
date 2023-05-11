@@ -1,8 +1,6 @@
-import './Login.css'
+import { clearUser, setUser } from '../services/store'
 
-import { createSignal, onMount } from 'solid-js'
-
-import { setUser } from '../../services/store'
+import { createSignal } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
 
 export default function Login() {
@@ -10,8 +8,7 @@ export default function Login() {
   const [username, setUsername] = createSignal('')
   const [password, setPassword] = createSignal('')
 
-  let usernameRef: any
-  let passwordRef: any
+  clearUser()
 
   if (window.parent) {
     window.parent.postMessage({ type: 'user', data: '' }, '*')
@@ -23,38 +20,33 @@ export default function Login() {
     setUser({ id: username(), username: username() })
     navigate('/')
   }
-
-  onMount(() => {
-    usernameRef.addEventListener('sl-input', (e: any) => setUsername(e.target.value))
-    passwordRef.addEventListener('sl-input', (e: any) => setPassword(e.target.value))
-  })
-
+  
   return (
     <div class="flex flex-col gap-4 items-center justify-center h-screen w-screen">
       <img src="/favicon/android-chrome-192x192.png" class='w-16' />
-      <sl-card class="card-header1 max-w-md w-full">
-        <div slot="header">Login</div>
+      <div class="border rounded p-6 max-w-md w-full">
+        <div class="mb-2 pb-2">Login</div>
         <form class="grid gap-2 w-200" onSubmit={handleSubmit}>
-          <sl-input
-            ref={usernameRef}
-            label="Username"
+          <div class='text-xs'>Username</div>
+          <input
             placeholder="demouser@mail.com"
             value={username()}
-            onInput={(e: { target: { value: any } }) => setUsername(e.target.value)}
+            class='rounded border p-2 w-full'
+            onInput={(e: any) => setUsername(e.target.value)}
           />
-          <sl-input
-            ref={passwordRef}
-            label="Password"
+          <div class='text-xs'>Password</div>
+          <input
             placeholder="demopass"
             type="password"
             value={password()}
-            onChange={(e: any) => setUsername(e.target.value)}
+            class='rounded border p-2 w-full'
+            onInput={(e: any) => setPassword(e.target.value)}
           />
-          <sl-button type="submit" variant="primary" size="large" class="mt-6">
+          <button type="submit" disabled={!username()} class="mt-6 text-white bg-sky-600 hover:bg-sky-500 rounded py-4 font-medium disabled:bg-neutral-200 disabled:text-neutral-500">
             Login
-          </sl-button>
+          </button>
         </form>
-      </sl-card>
+      </div>
     </div>
   )
 }

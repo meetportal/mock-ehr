@@ -1,11 +1,13 @@
-import { Route, Routes, useLocation } from '@solidjs/router'
-import { createEffect, onCleanup, onMount } from 'solid-js'
+import { A, Route, Routes, useLocation } from '@solidjs/router'
+import { createEffect, lazy, onCleanup, onMount } from 'solid-js'
 
-import Chart from './pages/Chart/Chart'
-import Error from './pages/Error/Error'
-import Login from './pages/Login/Login'
-import Main from './pages/Main/Main'
-import Patients from './pages/Patients/Patients'
+import BaseLayout from './layouts/BaseLayout'
+
+const Login = lazy(() => import('./pages/Login'))
+const Chart = lazy(() => import('./pages/Chart'))
+const Patients = lazy(() => import('./pages/Patients'))
+const Main = lazy(() => import('./pages/Main'))
+const Error = lazy(() => import('./pages/Error'))
 
 export default function App() {
   const location = useLocation()
@@ -37,10 +39,12 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" component={Login} />
-      <Route path="/chart/:id" component={Chart} />
-      <Route path="/patients" component={Patients} />
-      <Route path="/" component={Main} />
-      <Route path="**" component={Error} />
-    </Routes>
+      <Route path="/" component={BaseLayout}>
+        <Route path="/chart/:id" component={Chart} />
+        <Route path="/patients" component={Patients} />
+        <Route path="/" component={Main} />
+      </Route>
+      <Route path="*" component={Error} />
+    </Routes >
   )
 }
