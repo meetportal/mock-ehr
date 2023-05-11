@@ -1,7 +1,7 @@
 import CalendarItem from '../CalendarItem/CalendarItem'
 import Container from '../Container/Container'
 import { For } from 'solid-js'
-import { state } from '../../store'
+import { state } from '../../services/store'
 import styles from './Calendar.module.css'
 
 const Calendar = () => {

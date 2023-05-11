@@ -1,7 +1,7 @@
 import Container from '../Container/Container'
 import { For } from 'solid-js'
 import PatientItem from '../PatientItem/PatientItem'
-import { state } from '../../store'
+import { state } from '../../services/store'
 
 const PatientList = () => {
   return (

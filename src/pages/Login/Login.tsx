@@ -2,24 +2,25 @@ import './Login.css'
 
 import { createSignal, onMount } from 'solid-js'
 
+import { setUser } from '../../services/store'
 import { useNavigate } from '@solidjs/router'
 
 export default function Login() {
   const navigate = useNavigate()
-  const [username, setUsername] = createSignal('demouser@mail.com')
-  const [password, setPassword] = createSignal('demopass')
+  const [username, setUsername] = createSignal('')
+  const [password, setPassword] = createSignal('')
 
   let usernameRef: any
   let passwordRef: any
 
   if (window.parent) {
+    window.parent.postMessage({ type: 'user', data: '' }, '*')
     window.parent.postMessage({ type: 'resource', data: '' }, '*')
   }
 
   const handleSubmit = (e: Event) => {
     e.preventDefault()
-    console.log('username', username())
-    console.log('password', password())
+    setUser({ id: username(), username: username() })
     navigate('/')
   }
 
@@ -35,16 +36,16 @@ export default function Login() {
         <div slot="header">Login</div>
         <form class="grid gap-2 w-200" onSubmit={handleSubmit}>
           <sl-input
-            id="username"
             ref={usernameRef}
-            placeholder="Username"
+            label="Username"
+            placeholder="demouser@mail.com"
             value={username()}
             onInput={(e: { target: { value: any } }) => setUsername(e.target.value)}
           />
           <sl-input
-            id="password"
             ref={passwordRef}
-            placeholder="Password"
+            label="Password"
+            placeholder="demopass"
             type="password"
             value={password()}
             onChange={(e: any) => setUsername(e.target.value)}

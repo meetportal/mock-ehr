@@ -4,7 +4,7 @@ import Female2 from '../../assets/female_2.png'
 import Male1 from '../../assets/male_1.png'
 import Male2 from '../../assets/male_2.png'
 import { createMemo } from 'solid-js'
-import { state } from '../../store'
+import { state } from '../../services/store'
 
 const PatientItem = (props: any) => {
   const patient = createMemo(() => {

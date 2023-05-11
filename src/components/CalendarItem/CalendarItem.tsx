@@ -7,7 +7,7 @@ import Female2 from '../../assets/female_2.png'
 import Male1 from '../../assets/male_1.png'
 import Male2 from '../../assets/male_2.png'
 import { format } from 'date-fns'
-import { state } from '../../store'
+import { state } from '../../services/store'
 
 const CalendarItem = (props: any) => {
   const [appointment, setAppointment] = createSignal('')

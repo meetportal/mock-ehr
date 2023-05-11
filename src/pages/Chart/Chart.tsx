@@ -7,7 +7,7 @@ import Container from '../../components/Container/Container'
 import Male1 from '../../assets/male_1.png'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import { format } from 'date-fns'
-import { state } from '../../store'
+import { state } from '../../services/store'
 import { useParams } from '@solidjs/router'
 
 const Chart = () => {
